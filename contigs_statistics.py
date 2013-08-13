@@ -99,9 +99,9 @@ else:
 
 
 #--------------------------------------- PRINT THE RESULTS -----------------------------------------
-print("Output	Threshold	Num contigs	Total bases in contigs	Average size	Maximum contig length	N50 for contigs	Contigs in N50	GC content	nonATGC in contigs")
-print(output+"	"+str(threshold)+"	"+str(num_contigs)+"	"+str(num_bases)+"	"+str("%.2f" % aver_size)+"	"+str(max_length)+"	"+str(n50)+"	"+str(contigsn50)+"	"+str("%.2f" % GC_content)+"	"+str(non_ATCG))
-
+results1 = ("Output	Threshold	Num contigs	Total bases in contigs	Average size	Maximum contig length	N50 for contigs	Contigs in N50	GC content	nonATGC in contigs")
+results2=(output+"	"+str(threshold)+"	"+str(num_contigs)+"	"+str(num_bases)+"	"+str("%.2f" % aver_size)+"	"+str(max_length)+"	"+str(n50)+"	"+str(contigsn50)+"	"+str("%.2f" % GC_content)+"	"+str(non_ATCG))
+print(results1+"\n"+results2)
 #----------------------------------- SAVE THE OUTPUT IN A FILE --------------------------------------
 # Create the directory where output files will be stored
 if os.path.exists('output_dir/'):
@@ -115,6 +115,6 @@ else:
 file = open('./output_dir/'+output+"_"+str(threshold), 'wt')
 
 # Write all the elements of the filtered list to a text file
-file.write("Threshold	Num contigs	Total bases in contigs	Average size	Maximum contig length	N50 for contigs	Contigs in N50	GC content	nonATGC in contigs\n"+str(threshold)+"	"+str(num_contigs)+"	"+str(num_bases)+"	"+str("%.2f" % aver_size)+"	"+str(max_length)+"	"+str(n50)+"	"+str(contigsn50)+"	"+str("%.2f" % GC_content)+"	"+str(non_ATCG))
+file.write(results1+"\n"+results2)
 # close the file
 file.close
